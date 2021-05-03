@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_message/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         elevation: 0.0,
         leading: IconButton(
@@ -33,10 +35,23 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          Container(
-            height: 90.0,
-            color: Colors.blue,
-          )
+          CategorySelector(),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).accentColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                ),
+              ),
+              child: Column(
+                children: [
+                  FavoriteContacts(),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
