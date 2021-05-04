@@ -22,7 +22,7 @@ class _CategorySelectorState extends State<CategorySelector> {
             onTap: () => {
               setState(() {
                 selectedIndex = index;
-              })
+              }),
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
