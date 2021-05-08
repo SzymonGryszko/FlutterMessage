@@ -1,7 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_message/screens/home_screen.dart';
+import 'package:flutter_message/screens/home_page.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(MyApp());
 }
 
@@ -12,11 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Message',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.red,
-        accentColor: Color(0xFFFEF9EB)
-      ),
-      home: HomeScreen(),
+      theme:
+          ThemeData(primaryColor: Colors.red, accentColor: Color(0xFFFEF9EB)),
+      home: HomePage(),
     );
   }
 }

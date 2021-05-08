@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_message/provider/google_sign_in.dart';
 import 'package:flutter_message/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
+class MainScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: Icon(Icons.menu),
           iconSize: 30.0,
           color: Colors.white,
-          onPressed: () => {},
+          onPressed: () {
+            final provider =
+                Provider.of<GoogleSignInProvider>(context, listen: false);
+            provider.logout();
+          },
         ),
         centerTitle: true,
         title: Text(
