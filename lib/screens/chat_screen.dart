@@ -5,7 +5,7 @@ import 'package:flutter_message/models/user_model.dart';
 class ChatScreen extends StatefulWidget {
   final User user;
 
-  const ChatScreen({Key? key, required this.user}) : super(key: key);
+  const ChatScreen({Key key, this.user}) : super(key: key);
 
   @override
   _ChatScreenState createState() => _ChatScreenState();

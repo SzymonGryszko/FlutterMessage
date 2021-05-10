@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_message/api/firebase_api.dart';
 import 'package:flutter_message/provider/google_sign_in.dart';
 import 'package:flutter_message/widgets/widgets.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +13,9 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+    FirebaseApi.addUser(user.uid, user.displayName, user.photoURL);
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
